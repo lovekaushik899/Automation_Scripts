@@ -25,7 +25,7 @@ These scripts leverage popular **NGS tools and bioinformatics utilities**, inclu
 - **Linux Command-Line Tools**
 
 ## 🔧 Installation & Usage
-1. Clone the repository:
+1. Clone the repository: 
    ```bash
    git clone https://github.com/lovekaushik899/Automation_Scripts.git
    cd NGS_Automation_Scripts
