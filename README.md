@@ -46,3 +46,7 @@ Aligns trimmed reads to the reference genome in parallel using `BWA mem` and `GN
 Converts SAM to BAM, sorts and indexes BAM files sequentially using `SAMtools`.              
 **8_parallel_bam_processing.sh:**
 Performs SAM to BAM conversion, sorting and indexing in parallel using `GNU Parallel`.       
+
+Install via conda or package manager:
+```bash
+conda install -c bioconda sra-tools trim-galore parallel bwa samtools
