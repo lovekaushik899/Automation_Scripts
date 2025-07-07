@@ -1,43 +1,49 @@
-# NGS Automation Scripts
+# 🔧 Automation Scripts for NGS Data Processing
 
-## 🚀 About This Repository
-Welcome to **NGS Automation Scripts**, a collection of **Bash and Python scripts** designed to streamline and automate various **Next-Generation Sequencing (NGS) analysis workflows**. Whether you're working with raw sequencing reads, performing quality control, or analyzing genomic variations, these scripts can help you **simplify and accelerate** the process.
-
-## 📌 Features
-- **Automated Quality Control** (FastQC & MultiQC processing)
-- **FASTQ to FASTA Conversion**
-- **ORF Prediction & Translation**
-- **GC Content & Sequence Length Distribution Analysis**
-- **Automated Read Mapping & Alignment**
-- **Variant Calling & Annotation**
-- **Customizable & Scalable Pipelines**
-
-## 🛠 Tools & Dependencies
-These scripts leverage popular **NGS tools and bioinformatics utilities**, including:
-- **FastQC** (Quality Control)
-- **MultiQC** (Aggregated QC Reports)
-- **EMBOSS** (ORF Finding & Sequence Analysis)
-- **BWA / Bowtie2** (Read Mapping)
-- **SAMtools** (Alignment Processing)
-- **GATK / FreeBayes** (Variant Calling)
-- **Python (Biopython, Pandas, Matplotlib)**
-- **SRAToolkit** (Sequence Read Archive processing)
-- **Linux Command-Line Tools**
-
-## 🔧 Installation & Usage
-1. Clone the repository: 
-   ```bash
-   git clone https://github.com/lovekaushik899/Automation_Scripts.git
-   cd NGS_Automation_Scripts
-   ```
-2. Install dependencies:
-   ```bash
-   sudo apt-get install fastqc multiqc emboss bwa samtools gatk sratoolkit
-   pip install biopython pandas matplotlib
-   ```
-
-## 💡 Contribution
-Contributions are welcome! Feel free to fork the repository, add improvements, and submit a pull request.
+This repository contains a collection of bash scripts for automating common NGS data processing tasks, including data download from NCBI, trimming, alignment, and post-processing. Each task is available in both sequential and parallel versions, with detailed logging enabled.
 
 ---
-✉️ **Contact:** If you have any queries, feel free to reach out or open an issue!
+
+## 📦 Dependencies
+
+Ensure the following tools are installed and accessible in your environment:
+
+- **sratoolkit** (for `prefetch`, `fasterq-dump`)
+- **Trim Galore**
+- **GNU Parallel**
+- **BWA**
+- **SAMtools**
+- **Coreutils** (for utilities like `date`, `mkdir`, etc.)
+
+Install via conda or package manager:
+```bash
+conda install -c bioconda sra-tools trim-galore parallel bwa samtools
+
+
+| Tool           | Purpose                                                 |
+| -------------- | ------------------------------------------------------- |
+| `prefetch`     | Downloads `.sra` files from NCBI SRA                    |
+| `fasterq-dump` | Converts `.sra` files to `.fastq` format                |
+| `Trim Galore`  | Performs adapter and quality trimming on `.fastq` files |
+| `BWA mem`      | Aligns `.fastq` reads to a reference genome             |
+| `SAMtools`     | Converts SAM to BAM, sorts, and indexes BAM files       |
+| `GNU Parallel` | Enables parallel execution of batch processing commands |
+
+
+
+`1_sequential_download_convert.sh`:
+Sequentially downloads SRA files and converts them to FASTQ using `fasterq-dump`.            
+`2_parallel_download_convert.sh`:
+Downloads SRA files and converts to FASTQ in parallel using `GNU Parallel`.                  
+`3_parallel_trim_galore.sh`:
+Trims FASTQ files in parallel using `Trim Galore`.                                           
+`4_sequential_trim_galore.sh`:
+Trims FASTQ files sequentially using `Trim Galore`.                                          
+`5_sequential_bwa_alignment.sh`:
+Aligns trimmed reads to the reference genome sequentially using `BWA mem`.                  
+`6_parallel_bwa_alignment.sh`:
+Aligns trimmed reads to the reference genome in parallel using `BWA mem` and `GNU Parallel`. 
+`7_sequential_bam_processing.sh`:
+Converts SAM to BAM, sorts and indexes BAM files sequentially using `SAMtools`.              
+`8_parallel_bam_processing.sh`:
+Performs SAM to BAM conversion, sorting and indexing in parallel using `GNU Parallel`.       
