@@ -28,7 +28,7 @@ conda install -c bioconda sra-tools trim-galore parallel bwa samtools
 | `BWA mem`      | Aligns `.fastq` reads to a reference genome             |
 | `SAMtools`     | Converts SAM to BAM, sorts, and indexes BAM files       |
 | `GNU Parallel` | Enables parallel execution of batch processing commands |
-
+```bash
 
 
 **1_sequential_download_convert.sh:**
