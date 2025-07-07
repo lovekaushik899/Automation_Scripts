@@ -16,7 +16,6 @@ Ensure the following tools are installed and accessible in your environment:
 - **Coreutils** (for utilities like `date`, `mkdir`, etc.)
 
 Install via conda or package manager:
-```bash
 conda install -c bioconda sra-tools trim-galore parallel bwa samtools
 
 
@@ -28,7 +27,7 @@ conda install -c bioconda sra-tools trim-galore parallel bwa samtools
 | `BWA mem`      | Aligns `.fastq` reads to a reference genome             |
 | `SAMtools`     | Converts SAM to BAM, sorts, and indexes BAM files       |
 | `GNU Parallel` | Enables parallel execution of batch processing commands |
-```bash
+
 
 
 **1_sequential_download_convert.sh:**
